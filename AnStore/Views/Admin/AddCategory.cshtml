@@ -1,0 +1,24 @@
+﻿@model AnStore.Models.Category
+@{
+    ViewData["Title"] = "AddCategory";
+}
+
+<h1>AddCategory</h1>
+
+<form asp-controller="Admin" asp-action="AddCategory">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span> 
+
+    </div>
+    <div class="form-group">
+        <button type="submit" value="Add" class="btn btn-secondary">
+            Add goods
+            <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor">
+            </svg>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Goods>
+
+
+<div class="row mt-5 mb-6">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <img class="img-thumbnail" src="@item.Imagine" alt="@item.Name">
+            <h2>Модель: @item.Name</h2>
+            <p>Ціна @item.PriceSellingGoods.ToString("c")</p>
+            <p><a class="btn btn-success" asp-controller="Home" asp-action="AboutGoods" asp-route-id="@item.Id">More</a> 
+            <a class="btn btn-success" href="#" onclick="AddCart(@item.Id);"><i class="fas fa-cart-plus"></i></a></p>           
+        </div>        
+    }
+</div>
+
+<script type="text/javascript">
+    function AddCart(id) {
+        event.preventDefault();
+
+        alert(id);
+    }
+</script>

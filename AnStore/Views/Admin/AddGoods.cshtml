@@ -1,0 +1,52 @@
+﻿@model AnStore.Models.Goods
+
+@*@{
+    ViewData["Title"] = "AddGoods";
+
+    IEnumerable<Category> categoryList = (IEnumerable<Category>)ViewData["CategoryList"];
+}*@
+
+<h3>Add Goods</h3>
+<br />
+
+<form asp-action="AddGoods" asp-controller="Admin" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label class="control-label">Image</label>
+        <input type="file" name="uploadedFile" /><br>
+        @*<input type="submit" value="Load image" />*@
+    </div>    
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Description</label>
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="GoodsCount" class="control-label"></label>
+        <input type="number" asp-for="GoodsCount" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PriceReceivedGoods" class="control-label">PriceReceivedGoods</label>
+        <input type="number" asp-for="PriceReceivedGoods" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PriceSellingGoods" class="control-label">PriceSellingGoods</label>
+        <input type="number" asp-for="PriceSellingGoods" class="form-control" />
+    </div>
+    <div class="form-group">
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="custom-select">
+            <option selected>Choose Category</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" value="Add" class="btn btn-secondary">
+            Add goods
+            <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" fill="currentColor">
+            </svg>
+        </button>
+    </div>
+</form>
+
